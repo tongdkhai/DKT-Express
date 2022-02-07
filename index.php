@@ -1,0 +1,404 @@
+<?php
+    require_once "database.php"
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DKT Express</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./icons/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Start header */
+#header .user a,
+#header li a {
+    color: #fff;
+    padding: 20px 40px;
+    font-weight: 600;
+}
+
+#header .dropdown-menu a {
+    color: #000;
+}
+
+#header .user:hover,
+#header li:hover {
+    background-color: rgb(245, 236, 236);
+    border-radius: 5px;
+}
+
+#header .user:hover a,
+#header li:hover a {
+    color: #000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+#header .user {
+    margin-left: 150px;
+}
+
+.jumbotron {
+    background-color: #000 !important;
+    color: rgb(255, 253, 253);
+    padding: 100px 25px !important;
+    font-family: Montserrat, sans-serif;
+    margin-top: 75px;
+    border-radius: 0px !important;
+  }
+
+/* Start slider */
+#slider {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    height: 600px;
+}
+
+#slider img {
+    height: 610px;
+    width: 1020px;
+}
+#slider .col-4 {
+    list-style: none;
+}
+
+#slider .col-4 li {
+    margin: 80px 0 0 50px;
+}
+
+#slider .col-4 .para1slider {
+    font-size: 50px;
+    color: rgb(94, 43, 43);
+    font-style: italic;
+    font-weight: 350;
+    text-align: center;
+}
+
+#slider .col-4 .para2slider {
+    margin-top: 80px;
+}
+
+#slider .col-4 .para2slider p {
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: justify;
+    opacity: 0.7;
+}
+
+/* Start #content .author */
+#content {
+    height: 2400px;
+    background-color: rgb(36, 32, 32);
+}
+
+#content .shipper h3,
+#content .nhacungcap h3 {
+    font-size: 40px;
+    color: #ccc;
+    text-align: center;
+    padding: 70px 0;
+    margin-bottom: 30px;
+}
+
+#content .shipper .row {
+    margin: 0 250px 50px 250px;
+}
+
+#content .shipper  .row .col-4 {
+    border-radius: 10px;
+}
+
+#content .shipper  .row .col-4 img {
+    width: 100%; 
+    height: 250px; 
+    margin-top: 10px; 
+    border-radius: 10px;
+}
+
+#content .shipper  .row .col-4 p {
+    text-align: justify;
+    padding: 15px;
+    color: #ccc;
+}
+
+/* Start #content .book */
+#content .nhacungcap .row {
+    margin: 0 100px 50px 100px;
+}
+
+#content .nhacungcap .row .col-4 img {
+    width: 250px;
+    height: 300px;
+}
+
+#content .nhacungcap .row .col-4 img:hover {
+    transform: scale(1.15, 1.15);
+    transition-duration: 2s;
+    width: 250px;
+}
+
+#content .nhacungcap .row .col-4 p {
+    color: #ccc;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+#content .shipper .col-4 {
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+@keyframes example {
+    from {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+  </style>
+</head>
+
+<body>
+  <div id= "main">
+    <div id="header" class="navbar navbar-expand-lg fixed-top" style="height: 75px; background-color: rgb(243, 148, 7);">
+      <ul class="navbar-nav col-8" >
+        <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+        <li class="nav-item dropdown">
+          <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Nhà cung cấp</a>
+          <div class="dropdown-menu" style="background-color: rgb(245, 242, 237);">
+            <a href="/listproduct1/listproduct1.html" class="dropdown-item">Adidas</a>
+            <a href="/listproduct2/listproduct2.html" class="dropdown-item">Nike</a>
+            <a href="/listproduct3/listproduct3.html" class="dropdown-item">Vans</a>
+            <a href="/listproduct4/listproduct4.html" class="dropdown-item">Converse</a>
+            <a href="/listproduct5/listproduct5.html" class="dropdown-item">Jordan</a>
+            <a href="/listproduct6/listproduct6.html" class="dropdown-item">AlexanderMcQueen</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#shipper1">Shipper uy tín</a></li>
+        <li class="nav-item"><a class="nav-link" href="#nhacungcap1">Nhà cung cấp nổi bật</a></li>
+        <li class="nav-item"><a class="nav-link" href="#lienhe">Liên hệ</a></li>
+      </ul>
+
+      <div class="col-4">
+          <div class="user" style="width: 180px;">
+          <a class="nav-link" href="http://localhost/nhacungcapvashippertoanquoc/login.php">
+          <i class="ti-user"> Đăng nhập </i>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron text-center">
+      <h1>DKT Express</h1> 
+      <p style="font-style: italic;">Chúng tôi chuyên cung cấp các nhà cung cấp, shipper toàn quốc cho các bạn</p> 
+      <form action="" method = "post"> 
+                    <div class="input-group pt-5">
+                        <input type="text" class="form-control" placeholder="Mã đơn hàng" required name="donhangid" />
+                        <button class="btn btn-warning" type="submit" name="getvitri" id="button-addon2">Tra cứu</button>
+                    </div>
+                </form>
+                <?php
+                    if (isset($_POST['getvitri'])){
+                        $sql = "select * from vitri where donhangid = '".$_POST['donhangid']."';";                 
+                        $result = executeResult($sql);
+                        if (sizeof($result) >0){
+                            echo '<div class = "mt-4">  
+                            <h2>Mã đơn hàng: '.$_POST['donhangid'].'</h2>
+                            <table class="table table-light table-striped table-hover ">
+                        <thead>
+                          <tr>
+                            <th scope="col">Thời gian</th>
+                            <th scope="col">Vị trí</th>
+                          </tr>
+                        </thead>
+                        <tbody>';
+
+                            foreach ($result as $res){
+                                echo "<tr>
+                                <td >".$res["thoigian"]."</td>
+                                <td>Hàng đã được chuyển đến [ <div class='d-inline text-success'>".$res["vitri"]."</div> ]</td>
+                              </tr>";
+                            }
+                           echo'</tbody>
+                        </table>
+                        </div>';
+                        }
+                    }
+                ?>
+    </div>
+  
+    <div id="slider" class="carousel slide" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#slider" data-slide-to="0" class="active"></li>
+        <li data-target="#slider" data-slide-to="1"></li>
+        <li data-target="#slider" data-slide-to="2"></li>
+      </ul>
+    
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row" style="background-color: rgb(255, 140, 8);">
+            <ul class="col-4">
+                <li><p class="para1slider">Bí kíp giao hàng trong mùa dịch</p></li>
+                <li><div class="para2slider"><p>Giao hàng nhanh, tiết kiệm trong mùa dịch này</p></div></li>
+            </ul>
+            <div class="col-8"><img src="./img/Slider13.jpg" alt=""></div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row" style="background-color: rgb(233, 117, 10);">
+            <ul class="col-4">
+              <li><p class="para1slider">Miễn phí trả hàng, cam kết chất lượng</p></li>
+              <li><div class="para2slider"><p>Chất lượng của đơn hàng luôn được đảm bảo ở mức tốt nhất</p></div></li>
+            </ul>
+            <div class="col-8"><img src="./img/Slider14.jpg" alt=""></div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row" style="background-color: rgb(247, 121, 4);">
+            <ul class="col-4">
+              <li><p class="para1slider">Giao hàng trên mọi miền tổ quốc</p></li>
+              <li><div class="para2slider"><p>Luôn giao hàng tận nơi cho khách hàng dù khách hàng đang ở bất cứ nơi đâu </p></div></li>
+            </ul>
+            <div class="col-8"><img src="./img/Slider3.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+    
+      <a class="carousel-control-prev" href="#slider" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#slider" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    
+    </div>
+
+    <div id="content">
+      <div  id="shipper1" class="shipper">
+        <h3>Shipper uy tín</h3>
+        <div class="row">
+          <div class="col-4 text-center">
+            <img src="./img/Shipper/Shipper1.jpg" alt="" >
+            <p class="text-center">Anh Nguyễn Văn Xuân <br> "Trong ngành shipper này, tôi có rất nhiều kinh nghiệm và có hơn 10 năm kinh nghiệm làm nghề này. Tôi luôn thực hiện đúng
+                        lời hứa với khách hàng và thực hiện đúng với lời hứa đó một cách hết mình. Do đó tôi luôn được khách hàng tin tưởng và giao
+                        nhiệm vụ cho. Đó là thứ khiến cho tôi trở nên ngày một tốt lên."</p>
+          </div>
+          <div class="col-4 text-center">
+            <img src="./img/Shipper/Shipper2.jpg" alt="">
+            <p class="text-center">Anh Lê Xuân Trường <br> "Tôi luôn cho rằng chỉ cần làm việc chăm chỉ thì sẽ được đền đáp một cách thích đáng. Do đó tôi luôn hoàn thành nhiệm vụ 
+                        khách hàng giao cho một cách nhanh nhất cũng như tốt nhất. Khách hàng là thượng đế là tôn chỉ của tôi."</p>
+          </div>
+          <div class="col-4 text-center">
+            <img src="./img/Shipper/Shipper3.jpg" alt="">
+            <p class="text-center">Anh Bùi Trọng Tiến <br> Tôi cho rằng chỉ cần làm việc một cách nhiệt tình, hết sức mình thì luôn được đền đáp những thành quả xứng đáng. Do đó
+                        , tôi luôn làm việc chăm chỉ một cách hết sức mình, làm hài lòng khách hàng nhất có thể. Đó là phong cách làm việc của tôi."</p>
+          </div>
+        </div>
+
+      </div> 
+        
+      <div id="nhacungcap1" class="nhacungcap">
+        <h3>Nhà cung cấp nổi bật</h3>
+        <div class="row">
+          <div class="col-4 text-center">
+              <a href="/listproduct4/matbiec.html"><img src="./image/adidas.png" alt="" ></a>
+              <p>Adidas ltd AG là một nhà sản xuất dụng cụ thể thao của Đức, một thành viên của Adidas Group, bao gồm cả công ty dụng cụ thể thao Reebok, công ty golf Taylormade, công ty sản xuất bóng golf Maxfli và Adidas golf. Adidas là nhà sản xuất dụng cụ thể thao lớn thứ hai trên thế giới.</p>
+          </div>
+          <div class="col-4 text-center">
+            <a href="/listproduct1/demenphieuluuki.html"><img src="./image/nike.jpg" alt="" ></a>
+            <p>Nike, Inc. là một tập đoàn đa quốc gia của America hoạt động trong lĩnh vực thiết kế, phát triển, sản xuất, quảng bá cũng như kinh doanh các mặt hàng giày dép, quần áo, phụ kiện, trang thiết bị và dịch vụ liên quan đến thể thao. Trụ sở của công ty được đặt gần Beaverton, Oregon, tại khu vực đô thị Portland.</p>
+          </div>
+          <div class="col-4 text-center">
+            <a href="/listproduct4/laohac.html"><img src="./image/converse 1.png" alt=""></a>
+            <p>Converse là một công ty giày của Mỹ chuyên sản xuất giày trượt ván, giày dép thường ngày và quần áo. Được thành lập vào năm 1908, đến này Converse đã trở thành một công ty con của Nike, Inc. kể từ năm 2003</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4 text-center">
+            <a href=""><img src="./image/alex.png" alt=""></a>
+            <p>Alexander McQueen là một nhà mốt xa xỉ của Anh được thành lập bởi nhà thiết kế Alexander McQueen vào năm 1992. Giám đốc sáng tạo hiện tại của nó là Sarah Burton.</p>
+          </div>
+          <div class="col-4 text-center">
+            <a href=""><img src="./image/j.png" alt=""></a>
+            <p>Logo "Jumpman" thuộc sở hữu của Nike để quảng cáo cho thương hiệu giày thể thao bóng rổ và đồ thể thao khác của Air Jordan. Đó là hình bóng của cựu cầu thủ Chicago Bulls NBA và chủ sở hữu hiện tại của Charlotte Hornets, Michael Jordan.</p>
+          </div>
+          <div class="col-4 text-center">
+            <a href=""><img src="./image/download.png" alt=""></a>
+            <p>Vans là thương hiệu thời trang chuyên về giày trượt ván, quần áo và phụ kiện của Mỹ, được thành lập tại Anaheim, California và thuộc sở hữu của tập đoàn VF Corporation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nhật xấu -->
+    <div id="lienhe" class="footer" style="width: 100%; height: 550px; background-color: rgb(255, 255, 255);">
+      <h3 style="font-size: 40px; text-align: center; padding: 50px 0;">Thông tin chi tiết liên hệ</h3>
+      <div class="row" style=" margin: 0 200px; height: 250px;">
+        <div class="col-6"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3337318107206!2d105.78300255058255!3d20.979255285956654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accd844073f5%3A0xf63c772ebdd9f5d!2zMTEwIFRy4bqnbiBQaMO6LCBQLiBN4buZIExhbywgSMOgIMSQw7RuZywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1638437163770!5m2!1svi!2s" width="450px" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="col-6">
+          <h3 style="text-align: center; font-style: italic; padding: 15px 0;">DKT Express</h3>
+          <p style="text-align: justify; font-size: 17px; line-height: 25px;">Địa chỉ: SN 110, đường Trần Phú, phường Mỗ Lao, Quận Hà Đông, Hà Nội <br><br>Mở cửa: Các ngày trong tuần từ 8h đến 17h30 <br><br>Hotline: 0964836472</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Messenger Plugin chat Code -->
+  <div id="fb-root"></div>
+
+  <!-- Your Plugin chat code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
+  </div>
+
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "105835201866208");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v12.0'
+      });
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  </script>
+</body>
+</html>
